@@ -1,0 +1,10 @@
+.layer {
+  width: 300px;
+  border: 5px solid #3b5998;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.layer-content {
+  min-height: 100px;
+  padding: 20px;
+}

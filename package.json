@@ -1,0 +1,39 @@
+{
+  "name": "@autofe/layer",
+  "version": "0.1.0",
+  "description": "A Layer library based on jQuery",
+  "keywords": [
+    "library",
+    "autohome",
+    "layer"
+  ],
+  "main": "dist/layer.js",
+  "jsnext:main": "src/index.js",
+  "scripts": {
+    "build": "npm run lint && rollup -c ./rollup.config.js",
+    "lint": "eslint lib test",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jpuncle <zhangxingkai@autohome.com.cn>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/athm-fe/layer.git"
+  },
+  "license": "MIT",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.15.0",
+    "rollup": "^0.54.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.2"
+  }
+}
