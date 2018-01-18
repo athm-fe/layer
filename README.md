@@ -109,3 +109,5 @@ $('#layer').on('show.fe.layer', function (e) {
   e.relatedTarget;
 });
 ```
+
+## Thanks [Bootstrap](http://getbootstrap.com/)
