@@ -11,33 +11,35 @@
 
 $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 /**
  * ------------------------------------------------------------------------
  * Constants
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'layer';
-const DATA_KEY = 'fe.layer';
-const EVENT_KEY = `.${DATA_KEY}`;
-const DATA_API_KEY = '.data-api';
-const JQUERY_NO_CONFLICT = $.fn[NAME];
-const TRANSITION_DURATION = 300;
-const BACKDROP_TRANSITION_DURATION = 150;
-const ESCAPE_KEYCODE = 27;
+var NAME = 'layer';
+var DATA_KEY = 'fe.layer';
+var EVENT_KEY = '.' + DATA_KEY;
+var DATA_API_KEY = '.data-api';
+var JQUERY_NO_CONFLICT = $.fn[NAME];
+var TRANSITION_DURATION = 300;
+var BACKDROP_TRANSITION_DURATION = 150;
+var ESCAPE_KEYCODE = 27;
 
-const Event = {
-  SHOW: `show${EVENT_KEY}`,
-  SHOWN: `shown${EVENT_KEY}`,
-  HIDE: `hide${EVENT_KEY}`,
-  HIDDEN: `hidden${EVENT_KEY}`,
-  RESIZE: `resize${EVENT_KEY}`,
-  CLICK_DISMISS: `click.dismiss${EVENT_KEY}`,
-  KEYDOWN_DISMISS: `keydown.dismiss${EVENT_KEY}`,
-  CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
+var Event = {
+  SHOW: 'show' + EVENT_KEY,
+  SHOWN: 'shown' + EVENT_KEY,
+  HIDE: 'hide' + EVENT_KEY,
+  HIDDEN: 'hidden' + EVENT_KEY,
+  RESIZE: 'resize' + EVENT_KEY,
+  CLICK_DISMISS: 'click.dismiss' + EVENT_KEY,
+  KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
+  CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
 };
 
-const Selector = {
+var Selector = {
   DATA_TOGGLE: '[data-toggle="layer"]',
   DATA_DISMISS: '[data-dismiss="layer"]'
 };
@@ -70,13 +72,13 @@ Layer.prototype.toggle = function (relatedTarget) {
 };
 
 Layer.prototype.show = function (relatedTarget) {
-  const that = this;
+  var that = this;
 
   if (that.isShown) {
     return;
   }
 
-  const showEvent = $.Event(Event.SHOW, {
+  var showEvent = $.Event(Event.SHOW, {
     relatedTarget: relatedTarget
   });
 
@@ -98,7 +100,7 @@ Layer.prototype.show = function (relatedTarget) {
   that._setBackdrop(function () {
     that.$elem.css({ display: 'block' });
 
-    const shownEvent = $.Event(Event.SHOWN, {
+    var shownEvent = $.Event(Event.SHOWN, {
       relatedTarget: relatedTarget
     });
 
@@ -119,7 +121,7 @@ Layer.prototype.hide = function (e) {
     return;
   }
 
-  const hideEvent = $.Event(Event.HIDE);
+  var hideEvent = $.Event(Event.HIDE);
 
   that.$elem.trigger(hideEvent);
 
@@ -146,12 +148,12 @@ Layer.prototype.handleUpdate = function () {
 };
 
 Layer.prototype._adjust = function () {
-  const viewWidth = $(window).width();
-  const viewHeight = $(window).height();
-  const width = this.$elem.outerWidth();
-  const height = this.$elem.outerHeight();
+  var viewWidth = $(window).width();
+  var viewHeight = $(window).height();
+  var width = this.$elem.outerWidth();
+  var height = this.$elem.outerHeight();
 
-  const cssMap = {
+  var cssMap = {
     left: (viewWidth - width) / 2
   };
 
@@ -200,10 +202,10 @@ Layer.prototype._setResizeEvent = function () {
 };
 
 Layer.prototype._setBackdrop = function (callback) {
-  const that = this;
-  const opt = that.options;
-  const speed = BACKDROP_TRANSITION_DURATION;
-  const back = '<div style="position:fixed;top:0;right:0;bottom:0;left:0;z-index:1000;background:#000;opacity:0;"></div>';
+  var that = this;
+  var opt = that.options;
+  var speed = BACKDROP_TRANSITION_DURATION;
+  var back = '<div style="position:fixed;top:0;right:0;bottom:0;left:0;z-index:1000;background:#000;opacity:0;"></div>';
 
   if (opt.backdrop) {
     if (that.isShown) {
@@ -230,7 +232,7 @@ Layer.prototype._setBackdrop = function (callback) {
 };
 
 Layer.prototype._effect = function (name, callback) {
-  const speed = TRANSITION_DURATION;
+  var speed = TRANSITION_DURATION;
 
   switch (name) {
     case 'fadeIn':
@@ -259,9 +261,9 @@ Layer.prototype._effect = function (name, callback) {
 
 function Plugin(config, relatedTarget) {
   return this.each(function () {
-    const $this = $(this);
-    let data = $this.data(DATA_KEY);
-    const _config = $.extend({}, Layer.Default, $this.data(), typeof config === 'object' && config);
+    var $this = $(this);
+    var data = $this.data(DATA_KEY);
+    var _config = $.extend({}, Layer.Default, $this.data(), (typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object' && config);
 
     if (!data) {
       data = new Layer(this, _config);
@@ -270,7 +272,7 @@ function Plugin(config, relatedTarget) {
 
     if (typeof config === 'string') {
       if (typeof data[config] === 'undefined') {
-        throw new TypeError(`No method named "${config}"`);
+        throw new TypeError('No method named "' + config + '"');
       }
       data[config](relatedTarget);
     } else if (_config.show) {
@@ -286,10 +288,10 @@ function Plugin(config, relatedTarget) {
  */
 
 $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (e) {
-  const $this = $(this);
-  const $target = $($this.attr('data-target'));
+  var $this = $(this);
+  var $target = $($this.attr('data-target'));
 
-  const config = $target.data(DATA_KEY) ? 'toggle' : $.extend({}, $target.data(), $this.data());
+  var config = $target.data(DATA_KEY) ? 'toggle' : $.extend({}, $target.data(), $this.data());
 
   if (this.tagName === 'A' || this.tagName === 'AREA') {
     e.preventDefault();
