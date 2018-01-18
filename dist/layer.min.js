@@ -1,5 +1,5 @@
 /*!
- * layer v0.1.0
+ * layer v0.2.0
  * (c) 2018 Autohome Inc.
  * Released under the MIT License.
  */
