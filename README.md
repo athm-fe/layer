@@ -140,7 +140,7 @@ git tag vx.x.x
 发布到 NPM
 
 ```
-npm publish
+npm publish --access=public
 ```
 
 推送到 GitHub
