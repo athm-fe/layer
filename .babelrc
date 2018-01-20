@@ -1,3 +1,4 @@
 {
-  "presets": ["autofe-app"]
+  "presets": ["autofe-app"],
+  "plugins": ["external-helpers"]
 }
