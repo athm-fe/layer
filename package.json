@@ -8,7 +8,7 @@
     "layer"
   ],
   "main": "dist/layer.js",
-  "jsnext:main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
     "build": "npm run lint && rollup -c ./rollup.config.js",
     "release": "npm run build && npm run minify",
