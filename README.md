@@ -46,6 +46,7 @@ keyboard | boolean | true | 是否支持 ESC 关闭.
 backdrop | boolean or the string `'lock'` | true | 是否创建遮罩层. 默认点击遮罩层可以关闭对话框, 当值为 `'lock'` 时，不支持点击遮罩层关闭对话框.
 opacity | number | 0.5 | 遮罩层的透明度, 0 到 1 之间的浮点数.
 show | boolean | true | 初始化时是否打开对话框.
+time | number | 0 | 自动关闭, 默认不自动关闭, 可以配置毫秒数表示关闭时间
 
 ## Methods
 

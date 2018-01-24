@@ -1,5 +1,5 @@
 /*!
- * @autofe/layer v0.2.0
+ * @autofe/layer v0.3.0
  * (c) 2018 Autohome Inc.
  * Released under the MIT License.
  */
@@ -62,7 +62,8 @@ Layer.Default = {
   keyboard: true, // ESC 快捷键关闭
   backdrop: true, // 遮罩层, true 有, false 无, 'lock' 点击遮罩层不关闭
   opacity: 0.5, // 遮罩层透明度
-  show: true // 是否初始化时显示
+  show: true, // 是否初始化时显示
+  time: 0 // 自动关闭, 默认不自动关闭, 可以配置毫秒数表示关闭时间
 };
 
 Layer.prototype.toggle = function (relatedTarget) {
@@ -105,6 +106,14 @@ Layer.prototype.show = function (relatedTarget) {
     that.$elem.trigger(shownEvent);
 
     that._effect('fadeIn');
+
+    // Setup auto close
+    var time = that.options.time;
+    if (time > 0) {
+      setTimeout(function () {
+        that.hide();
+      }, time);
+    }
   });
 };
 
