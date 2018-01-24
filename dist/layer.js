@@ -1,5 +1,5 @@
 /*!
- * layer v0.2.0
+ * @autofe/layer v0.2.0
  * (c) 2018 Autohome Inc.
  * Released under the MIT License.
  */
@@ -10,12 +10,6 @@
 }(this, (function ($) { 'use strict';
 
 $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
 
 /**
  * ------------------------------------------------------------------------
@@ -267,7 +261,7 @@ function Plugin(config, relatedTarget) {
   return this.each(function () {
     var $this = $(this);
     var data = $this.data(DATA_KEY);
-    var _config = $.extend({}, Layer.Default, $this.data(), (typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object' && config);
+    var _config = $.extend({}, Layer.Default, $this.data(), typeof config === 'object' && config);
 
     if (!data) {
       data = new Layer(this, _config);

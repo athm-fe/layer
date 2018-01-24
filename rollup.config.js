@@ -7,7 +7,7 @@ const pkg = require(path.resolve(__dirname, './package.json'));
 
 const banner =
   '/*!\n' +
-  ' * layer v' + pkg.version + '\n' +
+  ' * ' + pkg.name + ' v' + pkg.version + '\n' +
   ' * (c) ' + new Date().getFullYear() + ' Autohome Inc.\n' +
   ' * Released under the MIT License.\n' +
   ' */';

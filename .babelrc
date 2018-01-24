@@ -1,4 +1,9 @@
 {
-  "presets": ["autofe-app"],
-  "plugins": ["external-helpers"]
+  "presets": [
+    ["autofe-app", {
+      "debug": false,
+      "exclude": ["transform-es2015-typeof-symbol"]
+    }]
+  ],
+  "plugins": []
 }
