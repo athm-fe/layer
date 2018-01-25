@@ -1,5 +1,5 @@
 /*!
- * @autofe/layer v0.3.0
+ * @autofe/layer v0.3.1
  * (c) 2018 Autohome Inc.
  * Released under the MIT License.
  */
@@ -99,21 +99,21 @@ Layer.prototype.show = function (relatedTarget) {
   that._setBackdrop(function () {
     that.$elem.css({ display: 'block' });
 
-    var shownEvent = $.Event(Event.SHOWN, {
-      relatedTarget: relatedTarget
+    that._effect('fadeIn', function () {
+      var shownEvent = $.Event(Event.SHOWN, {
+        relatedTarget: relatedTarget
+      });
+
+      that.$elem.trigger(shownEvent);
+
+      // Setup auto close
+      var time = that.options.time;
+      if (time > 0) {
+        setTimeout(function () {
+          that.hide();
+        }, time);
+      }
     });
-
-    that.$elem.trigger(shownEvent);
-
-    that._effect('fadeIn');
-
-    // Setup auto close
-    var time = that.options.time;
-    if (time > 0) {
-      setTimeout(function () {
-        that.hide();
-      }, time);
-    }
   });
 };
 
